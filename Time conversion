@@ -1,0 +1,31 @@
+//Problem link: https://www.hackerrank.com/challenges/time-conversion/problem
+
+import java.util.Scanner;
+
+public class TimeConversionH {
+    public void timeConversion(String time){
+        int hour = Integer.parseInt(time.substring(0,2));
+        int minute = Integer.parseInt(time.substring(3,5));
+        int second = Integer.parseInt(time.substring(6,8));
+        String amPm = time.substring(8,10);
+        if(amPm.equals("AM")){
+            if(hour==12)
+                System.out.printf("00:%02d:%02d",minute,second);
+            else
+                System.out.println(time.replace("AM",""));
+        }
+        else if(amPm.equals("PM")){
+            if(hour==12)
+                System.out.printf("12:%02d:%02d",minute,second);
+            else
+                System.out.printf(hour+12+":%02d:%02d",minute,second);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        TimeConversionH ans = new TimeConversionH();
+        String time = in.nextLine();
+        ans.timeConversion(time);
+    }
+}
