@@ -1,0 +1,26 @@
+// Problem link: https://www.hackerrank.com/challenges/cats-and-a-mouse/problem
+
+import java.util.Scanner;
+
+public class CatsAndAMouse {
+    public void catAndMouse(int catA,int catB,int mouse){
+        if(Math.abs(catA-mouse)<Math.abs(catB-mouse))
+            System.out.println("Cat A");
+        else if(Math.abs(catA-mouse)>Math.abs(catB-mouse))
+            System.out.println("Cat B");
+        else
+            System.out.println("Mouse C");
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        CatsAndAMouse ans = new CatsAndAMouse();
+        int testCase=in.nextInt();
+        for(int i=0;i<testCase;i++){
+            int catA=in.nextInt();
+            int catB=in.nextInt();
+            int mouse=in.nextInt();
+            ans.catAndMouse(catA,catB,mouse);
+        }
+    }
+}
