@@ -1,0 +1,33 @@
+// Problem link:https://www.hackerrank.com/challenges/electronics-shop/problem
+
+import java.util.Scanner;
+
+public class ElectronicsShop {
+    public void getMoneySpent(int[] keyboard,int[]usb,int budget){
+        int total,max=-1;
+        for(int i=0;i<keyboard.length;i++){
+            for(int j=0;j<usb.length;j++){
+                total=keyboard[i]+usb[j];
+                if(total<=budget && total>max){
+                    max=total;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        ElectronicsShop ans = new ElectronicsShop();
+        int budget=in.nextInt();
+        int keyboardCount=in.nextInt();
+        int usbCount=in.nextInt();
+        int[] keyboard=new int[keyboardCount];
+        int[] usb=new int[usbCount];
+        for(int i=0;i<keyboardCount;i++)
+            keyboard[i]=in.nextInt();
+        for(int i=0;i<usbCount;i++)
+            usb[i]=in.nextInt();
+        ans.getMoneySpent(keyboard,usb,budget);
+    }
+}
