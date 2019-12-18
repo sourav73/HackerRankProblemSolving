@@ -1,0 +1,28 @@
+// Problem link:https://www.hackerrank.com/challenges/sock-merchant/problem
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SockMerchant {
+    public void sockMerchant(int[] socks){
+        int total=0;
+        Arrays.sort(socks);
+        for(int i=0;i<socks.length-1;i++){
+            if(i<socks.length && socks[i]==socks[i+1]) {
+                total++;
+                i++;
+            }
+        }
+        System.out.println(total);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        SockMerchant ans = new SockMerchant();
+        int sockNumber=in.nextInt();
+        int[] socks=new int[sockNumber];
+        for(int i=0;i<sockNumber;i++)
+            socks[i]=in.nextInt();
+        ans.sockMerchant(socks);
+    }
+}
